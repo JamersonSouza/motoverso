@@ -4,20 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotoVerso</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <header>
 
+    <header>
+            <div class="container">
+                <nav class="navbar navbar-expand-lg pl-0 pr-0">
+                    <a class="navbar-brand" href="#">
+                        <img src="assets/img/logo_motoverso.png" alt="logo motoverso" width="160px" class="img-logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#motoVersodropDown">
+                            <span class="navbar-toggler-icon">
+                                <i class="fas fa-bars"></i>
+                            </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="motoVersodropDown">
+                        <ul class="navbar-nav ml-auto mr-auto">
+                            <li class="nav-item">
+                                <a href="#reserve" class="nav-link">Reservas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#services" class="nav-link">Serviços</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#catalog" class="nav-link">Catálogo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#depositions" class="nav-link">Depoimentos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
     </header>
 
     <section class="content-banner"></section>
-    <section class="services"></section>
-    <section class="menu"></section>
-    <section class="depositions"></section>
-    <section class="reserve"></section>
-    
+    <section class="services" id="services"></section>
+    <section class="catalog" id="catalog"></section>
+    <section class="depositions" id="depositions"></section>
+    <section class="reserve" id="reserve"></section>
+
     <footer>
 
     </footer>
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/modernizr-3.5.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
 </body>
 </html>

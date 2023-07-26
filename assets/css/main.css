@@ -29,4 +29,11 @@ html, body{
 strong{
     font-family: 'PoppinsMedium', 'Rubik', sans-serif;
 }
-.nav-link{color: var(--color-black); padding: 0 35px !important;}
+.nav-link{color: var(--color-black) !important; padding: 0 35px !important;}
+
+.btn-white{background-color: var(--color-white); color: var(--color-black) !important;
+border-radius: 20px; padding: 15px 15px; font-size: 1em; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);}
+.btn-icon{padding-right: 75px;}
+.btn-icon .icon{display: inline-block; color: var(--color-black); background-color: var(--color-primary);
+width: 45px; height: 40px; position: absolute; right: 10px; margin-top: -8px; border-radius: 15px;
+text-align: center; padding-top: 6px;}

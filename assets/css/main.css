@@ -88,3 +88,4 @@ position: absolute; right: 0; }
 .card-text{color: var(--color-secondary); padding: 0 30px; font-size: 15px;}
 .card-text p{font-size: 1.1em; color: var(--color-black); margin-bottom: 10px;}
 
+.iconify{margin: -5px 0;}

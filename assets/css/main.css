@@ -138,3 +138,11 @@ background-size: cover;}
 .text-deposition svg:last-child{margin: 50px 0;}
 
 .depositions-bg{position: absolute; left: 0; right: 0; height: 600px; background-image: url('../img/icons-sections-bg.png'); background-repeat: no-repeat; background-position: center;}
+
+.reserve{padding: 100px 0;}
+.reserve-text{padding-left: 60px;}
+.reserve-title{color: var(--color-primary); font-size: 16px; text-transform: uppercase; letter-spacing: 5px;}
+.card-secondary{background: linear-gradient(60deg, rgba(255,255,255,1) 0%, rgba(89,194,204,1) 50%, rgba(1,170,193,1) 100%);; border-radius: 70px; padding: 90px 0;}
+.card-reserve{height: 320px; width: 320px; border-radius: 120px; background-color: var(--color-white);
+position: absolute; top: -25px;}
+.reserve .img-reserve img{width: 100%;}

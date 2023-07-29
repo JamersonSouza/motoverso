@@ -146,3 +146,11 @@ background-size: cover;}
 .card-reserve{height: 320px; width: 320px; border-radius: 120px; background-color: var(--color-white);
 position: absolute; top: -25px;}
 .reserve .img-reserve img{width: 100%;}
+
+footer{background-color: var(--color-secondary); padding: 10px 0;}
+.logo-footer{width: 100px;}
+.container-logo-footer, .container-text-footer, .container-social-footer{display: flex; align-items: center;
+}
+.container-logo-footer{justify-content: start;}
+.container-text-footer{justify-content: center; color: var(--color-black);}
+.container-social-footer{justify-content: end;}

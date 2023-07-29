@@ -115,3 +115,26 @@ color: var(--color-white); padding: 4px 10px; background-color: var(--color-blac
 .card-item:hover .title-catalog{display: none;}
 .card-item:hover .add-cart{display: flex;}
 .card-item:hover .price-catalog{color: var(--color-black-strong) !important; margin-top: 20px;}
+
+.depositions{padding: 100px 0;}
+.title-depositions{color: var(--color-primary); font-size: 16px; text-transform: uppercase; letter-spacing: 5px;}
+.text-depositions{padding-left: 150px !important;}
+
+.item-deposition{margin-top: 70px;}
+.container-data-deposition{display: flex;}
+.img-deposition{width: 65px; height: 65px; background-color: var(--color-white); border-radius: 50px;
+background-repeat: no-repeat; margin-right: 15px;}
+
+#deposition .img-deposition{background-image: url('../img/user_depoimento_motoverso.png');
+background-size: cover;}
+
+.name-deposition{font-size: 1.1em; color: var(--color-black); margin-bottom: 5px;}
+.score-deposition{color: var(--color-primary);}
+.score-deposition span{color: var(--color-black);}
+
+.text-deposition{display: flex; font-size: 16px; color: var(--color-black);}
+.text-deposition svg{color: var(--color-primary); font-size: 1.7em;}
+.text-deposition svg:first-child{margin: 10px 20px;}
+.text-deposition svg:last-child{margin: 50px 0;}
+
+.depositions-bg{position: absolute; left: 0; right: 0; height: 600px; background-image: url('../img/icons-sections-bg.png'); background-repeat: no-repeat; background-position: center;}

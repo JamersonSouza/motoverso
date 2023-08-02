@@ -154,3 +154,21 @@ footer{background-color: var(--color-secondary); padding: 10px 0;}
 .container-logo-footer{justify-content: start;}
 .container-text-footer{justify-content: center; color: var(--color-black);}
 .container-social-footer{justify-content: end;}
+
+.modal-full{position: fixed; top: 0; bottom: 0; right: 0; left: 0; padding: 50px; 
+background-color: var(--color-white); overflow-x: hidden; z-index: 999; overflow-y: auto;
+display: flex; flex-direction: column;}
+
+.modal-header{padding-bottom: 20px;}
+.modal-body{flex: 1; overflow: auto; overflow-x: hidden;}
+
+.stages{display: flex;}
+.stage{width: 35px; height: 35px; background-color: var(--color-white); border-radius: 50px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); color: var(--color-black); display: flex;
+justify-content: center; align-items: center; margin-right: 20px;}
+
+.stage::before{content: ''; width: 20px; height: 2px; position: absolute;
+margin-left: 55px; background-color: var(--color-separete);}
+.stage:last-child::before{content: none;}
+
+ .title-car{font-size: 1em; color: var(--color-black);}

@@ -210,3 +210,16 @@ border: none !important;}
 .container-cep .form-control{padding-right: 75px;}
 .container-cep .btn{position: absolute; right: 25px; top: 38px;}
 select.form-control{height: 54px !important;}
+
+.item-car .resume{padding: 20px 0;}
+.img-product-resume img{width: 50px; border-radius: 11px;}
+.title-product-resume{color: var(--color-black); font-size: 0.9em; text-overflow: ellipsis;
+white-space: nowrap; overflow: hidden; margin-bottom: 0;}
+.price-product-resume{color: var(--color-primary); font-size: 0.8em; margin-bottom: 0;}
+.qtd-product-resume{color: var(--color-black); margin-bottom: 0; font-size: 1em;}
+
+.img-mapa{width: 50px; height: 50px; background-color: var(--color-secondary); color: var(--color-black);
+align-items: center; justify-content: center; display: flex; font-size: 1.1em; border-radius: 11px;}
+
+.text-address{margin-bottom: 0; color: var(--color-black);}
+.text-city{margin-bottom: 0;}

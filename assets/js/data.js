@@ -2,11 +2,32 @@ var CATALOGO = {
     "bauletos": [
         {
             "id": "bauleto_1",
-            "img": "./img/bauletos/motoverso_bauleto_1.jpg",
+            "img": "/assets/img/bauletos/motoverso_bauleto_1.jpg",
             "name": "Bauleto Para Moto ",
             "dsc": "80 Litros Pro Tork Universal",
             "price": 145.99
         },
+        {
+            "id": "bauleto_2",
+            "img": "/assets/img/bauletos/motoverso_bauleto_2.jpg",
+            "name": "Mochila Para Motocicleta À Prova D'água Multi-Funcional",
+            "dsc": "-",
+            "price": 276.00
+        },
+        {
+            "id": "bauleto_3",
+            "img": "/assets/img/bauletos/motoverso_bauleto_3.jpg",
+            "name": "Bauleto Boxer 46 Litros Glider Reforçado",
+            "dsc": "-",
+            "price": 196.22
+        },
+        {
+            "id": "bauleto_5",
+            "img": "/assets/img/bauletos/motoverso_bauleto_5.jpg",
+            "name": "Baú para moto Universal Awa Pros 29 Litros",
+            "dsc": "-",
+            "price": 149.90
+        }
        
     ],
     "capacetes": [

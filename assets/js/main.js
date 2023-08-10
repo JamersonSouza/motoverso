@@ -13,15 +13,21 @@ catalog.events = {
 }
 catalog.metods = {
 
-    getItensCatalog: () => {
-        var filter = CATALOGO['bauletos'];
+    getItensCatalog: (categoria = 'bauletos') => {
+        var filter = CATALOGO[categoria];
         console.log('AQUI: ', filter);
+        
+        $("#itemsCatalog").html('')
+
         $.each(filter, (i, e) => {
             let template = catalog.templates.item.replace(/\${imgs}/g, e.img)
             .replace(/\${name}/g, e.name)
-            .replace(/\${price}/g, e.price);
+            .replace(/\${price}/g, e.price.toFixed(2).replace('.', ','));
             $("#itemsCatalog").append(template)
         })
+
+        $('.container-categorias a').removeClass('ativo');
+        $('#list-' + categoria).addClass('ativo');
     }
 }
 

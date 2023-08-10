@@ -13,21 +13,39 @@ catalog.events = {
 }
 catalog.metods = {
 
-    getItensCatalog: (categoria = 'bauletos') => {
+    getItensCatalog: (categoria = 'bauletos', verMais = false) => {
         var filter = CATALOGO[categoria];
         console.log('AQUI: ', filter);
-        
-        $("#itemsCatalog").html('')
+
+        if(!verMais){
+            $("#itemsCatalog").html('');
+            $("#btnVerMais").removeClass('hidden');
+        }
+
 
         $.each(filter, (i, e) => {
             let template = catalog.templates.item.replace(/\${imgs}/g, e.img)
             .replace(/\${name}/g, e.name)
             .replace(/\${price}/g, e.price.toFixed(2).replace('.', ','));
-            $("#itemsCatalog").append(template)
+
+            if(verMais && i >= 4 && i < 12){
+                $("#itemsCatalog").append(template)
+            }
+            if(!verMais &&  i < 4){
+                $("#itemsCatalog").append(template)
+            }
+
         })
 
         $('.container-categorias a').removeClass('ativo');
         $('#list-' + categoria).addClass('ativo');
+    },
+
+    verMais: () => {
+        let isAtivo = $(".container-categorias a.ativo").attr('id').split('list-')[1];
+        catalog.metods.getItensCatalog(isAtivo, true);
+
+        $('#btnVerMais').addClass('hidden');
     }
 }
 

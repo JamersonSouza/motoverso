@@ -27,6 +27,13 @@ var CATALOGO = {
             "name": "Baú para moto Universal Awa Pros 29 Litros",
             "dsc": "-",
             "price": 149.90
+        },
+         {
+            "id": "bauleto_4",
+            "img": "/assets/img/bauletos/motoverso_bauleto_4.jpg",
+            "name": "Baú para moto Universal Awa Pros 29 Litros",
+            "dsc": "-",
+            "price": 119.90
         }
        
     ],

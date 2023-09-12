@@ -52,7 +52,7 @@ catalog.metods = {
 catalog.templates = {
 
     item:`
-    <div class="col-3">
+    <div class="col-12 col-lg-3 col-md-3 col-sm-6">
         <div class="card card-item">
                 <div class="img-catalog text-center">
                     <img src="\${imgs}" width="200px" alt="bauleto para moto pro tork 80 litros">

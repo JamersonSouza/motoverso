@@ -14,4 +14,22 @@
         .btn-icon-left span.icon-left{width: 43px; height: 43px; margin-left: -56px;}
         .btn-icon-left{padding-left: 63px !important;}
         .title{font-size: 30px;}
+        .services{padding: 50px 0 !important;}
+        .container-categorias a{margin: 5px 0;}
+        .img-catalog{position: absolute; left: 15px;}
+        .card-item{height: 110px; padding-left: 110px; justify-content: center; align-items: start;
+        margin: 10px 0;}
+        .card-item .img-catalog img{width: 80px;}
+        .title-catalog{margin-top: 0px !important; height: 30px !important; width: 100% !important;
+        text-align: left !important;}
+        .price-catalog{margin-bottom: 0px !important; margin-top: 0px !important; font-size: 22px !important;}
+        .card-item .add-car{margin-top: 5px;}
+        #itemsCatalog .mb-5{margin-bottom: 15px !important;}
+        .depositions{padding: 50px 0 !important;}
+        .reserve{padding: 50px 0 0 0 !important;}
+        .card-secondary{padding: 45px; border-radius: 50px;}
+        .container-logo-footer{justify-content: center; padding: 20px 0 0 0 !important;}
+        footer{ margin: 15px 0 0 0 !important;}
+        .container-text-footer p{text-align: center;}
+        .container-social-footer{margin-top: 15px; justify-content: center; margin-bottom: 20px;}
 }

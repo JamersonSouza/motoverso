@@ -1,0 +1,16 @@
+@media (max-width: 767px) {
+        .dont-mobile{display: none !important;}
+        .col-one{padding: 0 25px !important;}
+        .navbar-toggler-icon{padding-top: 5px;}
+        .navbar-collapse{background-color: var(--color-secondary);
+        text-align: center; border-radius: 40px; padding: 40px 0;}
+        .navbar-collapse .btn-white{margin-top: 20px;}
+        .navbar-collapse .btn-icon{padding-right: 20px;}
+        .navbar-collapse .btn-icon .icon{display: none;}
+        .content-banner{padding: 50px 0;}
+        .text-banner h1{font-size: 36px;}
+        .text-banner p{font-size: 18px;}
+        .btn-celeste, .btn-white{padding: 13px 23px; font-size: 18px;}
+        .btn-icon-left span.icon-left{width: 43px; height: 43px; margin-left: -56px;}
+        .btn-icon-left{padding-left: 63px !important;}
+}

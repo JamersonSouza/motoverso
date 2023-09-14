@@ -4,6 +4,8 @@ $(document).ready(function (){
 
 var catalog = {};
 
+var MY_CAR = [];
+
 catalog.events = {
     
     init: () => {
@@ -60,6 +62,41 @@ catalog.metods = {
     plusQuantity: (id) => {
         let quantityCurrent = parseInt($("#qtd-" + id).text());
         $("#qtd-" + id).text(quantityCurrent + 1)
+    },
+
+    addItensCar: (id) => {
+        let quantityCurrent = parseInt($("#qtd-" + id).text());
+        if(quantityCurrent > 0){
+            // get item catalog active
+            let isAtivo = $(".container-categorias a.ativo").attr('id').split('list-')[1];
+
+            //get list itens
+            var filter = CATALOGO[isAtivo];
+
+            // get current item
+            let item = $.grep(filter, function(e, i){
+                return e.id == id
+            });
+            if(item.length > 0){
+
+                //validation is exist item in car
+
+                let exist = $.grep(MY_CAR, function(element, index) {
+                    return element.id == id;
+                });
+                //case item exist, only change quantity
+                if(exist.length > 0){  
+                    let positionIndexInCar =  MY_CAR.findIndex((obj => obj.id == id));
+                    //get quantity exist and sum with quantityCurrent
+                    MY_CAR[positionIndexInCar].qtdAdd = MY_CAR[positionIndexInCar].qtdAdd + quantityCurrent;
+                }else{//case not exist item in car, add 
+                    item[0].qtdAdd = quantityCurrent;
+                    MY_CAR.push(item[0]);
+                }
+                
+                $("#qtd-" + id).text(0);
+            }
+        }
     }
 }
 
@@ -81,7 +118,7 @@ catalog.templates = {
                     <span class="btn-less" onclick="catalog.metods.lessQuantity('\${id}')"><i class="fas fa-minus"></i></span>
                     <span class="btn-number-itens" id="qtd-\${id}"><strong>0</strong></span>
                     <span class="btn-plus" onclick="catalog.metods.plusQuantity('\${id}')"><i class="fas fa-plus"></i></span>
-                    <span class="btn btn-add"><i class="fa fa-shopping-bag"></i></span>
+                    <span class="btn btn-add" onclick="catalog.metods.addItensCar('\${id}')"><i class="fa fa-shopping-bag"></i></span>
                 </div>
             </div>
         </div>

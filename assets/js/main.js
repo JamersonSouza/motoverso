@@ -93,11 +93,31 @@ catalog.metods = {
                     item[0].qtdAdd = quantityCurrent;
                     MY_CAR.push(item[0]);
                 }
-                
+                alert("adicionado ao carrinho")
                 $("#qtd-" + id).text(0);
+                
+                catalog.metods.updateBadgeCar();
             }
         }
-    }
+    },
+
+    // update value total for car
+    updateBadgeCar: () => { 
+        let total = 0;
+        $.each(MY_CAR, (i, e) => {
+            total+=e.qtdAdd;
+        });
+
+        if(total > 0){
+            $(".btn-car").removeClass('hidden');
+            $(".container-badges").removeClass('hidden');
+        }else{
+            $(".btn-car").addClass('hidden');
+            $(".container-badges").addClass('hidden');
+        }
+
+        $(".badges-car").html(total);
+    },
 }
 
 catalog.templates = {

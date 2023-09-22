@@ -101,7 +101,7 @@ catalog.metods = {
         }
     },
 
-    globalMessage: (textMessage, color = 'red', time = 4000) => {
+    globalMessage: (textMessage, color = 'green', time = 4000) => {
         let idMessage = Math.floor(Date.now() * Math.random()).toString();
         let message = `<div id="msg-${idMessage}" class="animated fadeInDown toast ${color}">${textMessage}</div>`
         $("#container-messages").append(message);
@@ -109,7 +109,9 @@ catalog.metods = {
         setTimeout(() => {
             $("#msg-"+idMessage).removeClass('fadeInDown');
             $("#msg-"+idMessage).addClass('fadeOutUp');
-            $("#msg-"+idMessage).remove();
+            setTimeout(()=>{
+                $("#msg-"+idMessage).remove();
+            }, 800)
         }, time)
     },
 

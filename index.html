@@ -41,7 +41,7 @@
                                 <a href="#depositions" class="nav-link"><strong>Depoimentos</strong></a>
                             </li>
                         </ul>
-                        <a href="#" class="btn btn-white btn-icon">
+                        <a href="#" class="btn btn-white btn-icon" onclick="catalog.metods.openModalCar(true)">
                             Meu Carrinho <span class="icon">
                                 <div class="container-badges badges-car hidden">9</div>
                                 <i class="fa fa-shopping-bag"></i></span>
@@ -280,15 +280,16 @@
             </div>
         </div>
     </footer>
-    <a href="#" class="btn-car hidden">
-        <div class="badges-car">9</div>
+    <a href="#" class="btn-car hidden" onclick="catalog.metods.openModalCar(true)">
+        <div class="badges-car"></div>
         <i class="fa fa-shopping-bag"></i>
     </a>
 
-    <div class="modal-full  hidden" id="modal-carrinho">
+    <div class="modal-full hidden" id="modal-carrinho">
         <div class="modal-header">
             <div class="container">
-                <a href="#" class="btn btn-white btn-sm float-right">FECHAR</a>
+                <a href="#" class="btn btn-white btn-sm float-right"
+                onclick="catalog.metods.openModalCar(false)">FECHAR</a>
                 <div class="stages">
                     <div class="stage stage1 ativo">1</div>
                     <div class="stage stage2">2</div>
@@ -301,7 +302,7 @@
         </div>
         <div class="modal-body">
             <div class="container">
-                    <div id="items-car" class="row ml-0 mr-0 hidden">
+                    <div id="items-car" class="row ml-0 mr-0">
                             <div class="col-12 item-car">
                                 <div class="img-product">
                                     <img src="assets/img/bauletos/motoverso_bauleto_1.jpg" alt="">

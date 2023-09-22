@@ -132,6 +132,14 @@ catalog.metods = {
 
         $(".badges-car").html(total);
     },
+
+    openModalCar: (isOpen) => {
+        if(isOpen){
+            $('#modal-carrinho').removeClass('hidden')
+        }else{
+            $('#modal-carrinho').addClass('hidden')
+        }
+    }
 }
 
 catalog.templates = {

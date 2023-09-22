@@ -93,12 +93,24 @@ catalog.metods = {
                     item[0].qtdAdd = quantityCurrent;
                     MY_CAR.push(item[0]);
                 }
-                alert("adicionado ao carrinho")
                 $("#qtd-" + id).text(0);
-                
+
+                catalog.metods.globalMessage("Item adicionado ao carrinho");
                 catalog.metods.updateBadgeCar();
             }
         }
+    },
+
+    globalMessage: (textMessage, color = 'red', time = 4000) => {
+        let idMessage = Math.floor(Date.now() * Math.random()).toString();
+        let message = `<div id="msg-${idMessage}" class="animated fadeInDown toast ${color}">${textMessage}</div>`
+        $("#container-messages").append(message);
+        
+        setTimeout(() => {
+            $("#msg-"+idMessage).removeClass('fadeInDown');
+            $("#msg-"+idMessage).addClass('fadeOutUp');
+            $("#msg-"+idMessage).remove();
+        }, time)
     },
 
     // update value total for car

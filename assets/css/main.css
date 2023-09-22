@@ -233,3 +233,8 @@ background-color: var(--color-primary); justify-content: center; display: flex; 
 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); z-index: 1; border-radius: 50px;
 cursor: pointer; color: var(--color-black-strong) !important; font-size: 1.8rem;
 }
+
+.container-messages{position: fixed; right: 20px; top: 20px; z-index: 999;}
+.toast{color: var(--color-background);  padding: 10px 25px; font-size: 1rem; border-radius: 25px; margin-bottom: 10px;}
+.toast.red{background-color: var(--color-red);}
+.toast.green{background-color: var(--color-green);}

@@ -135,11 +135,65 @@ catalog.metods = {
 
     openModalCar: (isOpen) => {
         if(isOpen){
-            $('#modal-carrinho').removeClass('hidden')
+            $('#modal-carrinho').removeClass('hidden');
+            catalog.metods.loadingSteps(1);
         }else{
-            $('#modal-carrinho').addClass('hidden')
+            $('#modal-carrinho').addClass('hidden');
         }
+    },
+
+    loadingSteps: (step) => {
+        if(step == 1){
+            $("#title-stage").text('Seu carrinho: ');
+            $("#items-car").removeClass('hidden');
+            $("#delivery").addClass('hidden');
+            $("#resume-car").addClass('hidden');
+
+            $(".stage").removeClass('ativo');
+            $(".stage1").addClass('ativo');
+
+            $("#btnStageOrder").removeClass('hidden');
+            $("#btnStageAddressOrder").addClass('hidden');
+            $("#btnStageSendOrder").addClass('hidden');
+            $("#btnBack").addClass('hidden');
+        }else if(step == 2){
+            $("#title-stage").text('Endereço de Entrega: ');
+            $("#items-car").addClass('hidden');
+            $("#delivery").removeClass('hidden');
+            $("#resume-car").addClass('hidden');
+
+            $(".stage").removeClass('ativo');
+            $(".stage1").addClass('ativo');
+            $(".stage2").addClass('ativo');
+
+            $("#btnStageOrder").addClass('hidden');
+            $("#btnStageAddressOrder").removeClass('hidden');
+            $("#btnStageSendOrder").addClass('hidden');
+            $("#btnBack").removeClass('hidden');
+        }else{
+            $("#title-stage").text('Resumo do Pedido: ');
+            $("#items-car").addClass('hidden');
+            $("#delivery").addClass('hidden');
+            $("#resume-car").removeClass('hidden');
+
+            $(".stage").removeClass('ativo');
+            $(".stage1").addClass('ativo');
+            $(".stage2").addClass('ativo');
+            $(".stage3").addClass('ativo');
+
+            $("#btnStageOrder").addClass('hidden');
+            $("#btnStageAddressOrder").addClass('hidden');
+            $("#btnStageSendOrder").removeClass('hidden');
+            $("#btnBack").removeClass('hidden');
+        }
+    },
+
+    backSteps:() => {
+        let stepActive = $(".stage.ativo").length;
+        catalog.metods.loadingSteps(stepActive - 1);
+
     }
+    
 }
 
 catalog.templates = {

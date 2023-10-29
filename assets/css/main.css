@@ -201,7 +201,6 @@ border-radius: 11px; color: var(--color-white); background-color: var(--color-re
 .container-amount .text-delivery{color: var(--color-separete);}
 .container-amount .text-amout{color: var(--color-black); font-size: 1em; margin-top: 10px;}
 .container-amount .valueAmount{font-size: 1.2em; color: var(--color-primary);}
-.btnStageAddressOrder, .btnStageSendOrder, .btnBack{display: none;}
 
 .form-control{background-color: var(--color-white); color: var(--color-black) !important;
 border-radius: 1em; padding: 15px 25px; font-size: 1em;  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;

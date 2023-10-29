@@ -4,6 +4,10 @@ $(document).ready(function (){
 
 var catalog = {};
 
+var VALUE_CAR = 0;
+
+var VALUE_DELIVERY = 5;
+
 var MY_CAR = [];
 
 catalog.events = {
@@ -206,9 +210,14 @@ catalog.metods = {
                 .replace(/\${id}/g, e.id)
                 .replace(/\${qtdAdd}/g, e.qtdAdd)
                 $("#items-car").append(template);
+
+                if((i+1) == MY_CAR.length){
+                    catalog.metods.calculatePriceCar();// calculate values the car
+                }
             });
         }else{
             $("#items-car").html('<p class="car-is-empty"><i class="fa fa-shopping-bag icon-car-is-empty"></i> Seu carrinho encontra-se vazio.</p>');
+            catalog.metods.calculatePriceCar();// calculate values the car
         }
     },
 
@@ -218,6 +227,7 @@ catalog.metods = {
         if(quantityCurrent > 0){
             $("#qtd-car-" + id).text(quantityCurrent - 1);
             catalog.metods.updateCar(id, quantityCurrent - 1);
+
         }else{
             catalog.metods.removeItemCar(id);
         }
@@ -248,6 +258,27 @@ catalog.metods = {
         MY_CAR[indexObj].qtdAdd = qtdNew;
 
         catalog.metods.updateBadgeCar(); //update button car
+        catalog.metods.calculatePriceCar();// calculate values the car
+    },
+
+    calculatePriceCar: () => { //calculate values total car
+
+        VALUE_CAR = 0;
+
+        $("#partialAmount").text('R$ 0,00')
+        
+        $("#lblDelivery").text('+ R$ 0,00')
+        
+        $("#amount").text('R$ 0,00')
+
+        $.each(MY_CAR, (i, e) => {
+            VALUE_CAR += parseFloat(e.price * e.qtdAdd);
+            if((i+1) == MY_CAR.length){
+                $("#partialAmount").text(`R$ ${VALUE_CAR.toFixed(2).replace('.', ',')}`);
+                $("#lblDelivery").text(`+ R$ ${VALUE_DELIVERY.toFixed(2).replace('.', ',')}`);
+                $("#amount").text(`R$ ${(VALUE_CAR + VALUE_DELIVERY).toFixed(2).replace('.', ',')}`);
+            }
+        })
     }
 }
 

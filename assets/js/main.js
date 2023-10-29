@@ -136,7 +136,7 @@ catalog.metods = {
     openModalCar: (isOpen) => {
         if(isOpen){
             $('#modal-carrinho').removeClass('hidden');
-            catalog.metods.loadingSteps(1);
+            catalog.metods.loadingCar();
         }else{
             $('#modal-carrinho').addClass('hidden');
         }
@@ -192,6 +192,36 @@ catalog.metods = {
         let stepActive = $(".stage.ativo").length;
         catalog.metods.loadingSteps(stepActive - 1);
 
+    },
+    
+    loadingCar:() => { //list itens car
+        catalog.metods.loadingSteps(1);
+
+        if(MY_CAR.length > 0){
+            $("#items-car").html(''); //clean list
+            $.each(MY_CAR, (i, e) => {
+                let template = catalog.templates.itens_car.replace(/\${imgs}/g, e.img)
+                .replace(/\${name}/g, e.name)
+                .replace(/\${price}/g, e.price.toFixed(2).replace('.', ','))
+                .replace(/\${id}/g, e.id)
+                .replace(/\${qtdAdd}/g, e.qtdAdd)
+                $("#items-car").append(template);
+            });
+        }else{
+
+        }
+    },
+
+    lessQuantityCar: (id) => {
+
+    },
+
+    plusQuantityCar: (id) => {
+
+    },
+
+    removeItemCar: (id) => {
+
     }
     
 }
@@ -202,7 +232,7 @@ catalog.templates = {
     <div class="col-12 col-lg-3 col-md-3 col-sm-6">
         <div class="card card-item" id="\${id}">
                 <div class="img-catalog text-center">
-                    <img src="\${imgs}" width="200px" alt="bauleto para moto pro tork 80 litros">
+                    <img src="\${imgs}" width="200px">
                         </div>
                             <p class="title-catalog text-center mt-4">
                                 <strong>\${name}</strong>
@@ -210,7 +240,7 @@ catalog.templates = {
                             <p class="price-catalog text-center">
                                 <strong>R$ \${price}</strong>
                             </p>
-                            <div class="add-car">
+                <div class="add-car">
                     <span class="btn-less" onclick="catalog.metods.lessQuantity('\${id}')"><i class="fas fa-minus"></i></span>
                     <span class="btn-number-itens" id="qtd-\${id}"><strong>0</strong></span>
                     <span class="btn-plus" onclick="catalog.metods.plusQuantity('\${id}')"><i class="fas fa-plus"></i></span>
@@ -218,6 +248,24 @@ catalog.templates = {
                 </div>
             </div>
         </div>
+    `,
+
+    itens_car:`
+    <div class="col-12 item-car">
+            <div class="img-product">
+                    <img src="\${imgs}" alt="">
+            </div>
+            <div class="data-product">
+                    <p class="title-product"><strong>\${name}</strong></p>
+                    <p class="price-product"><strong>R$ \${price}</strong></p>
+            </div>
+            <div class="add-car">
+                <span class="btn-less" onclick="catalog.metods.lessQuantityCar('\${id}')"><i class="fas fa-minus"></i></span>
+                <span class="btn-number-itens" id="qtd-car-\${id}"><strong>\${qtdAdd}</strong></span>
+                <span class="btn-plus" onclick="catalog.metods.plusQuantityCar('\${id}')"><i class="fas fa-plus"></i></span>
+                <span class="btn btn-remove" onclick="catalog.metods.removeItemCar('\${id}')"><i class="fa fa-shopping-bag"></i></span>
+            </div>
+    </div>
     `
 
 }

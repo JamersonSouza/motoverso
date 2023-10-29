@@ -238,3 +238,8 @@ cursor: pointer; color: var(--color-black-strong) !important; font-size: 1.8rem;
 .toast{color: var(--color-background);  padding: 10px 25px; font-size: 1rem; border-radius: 25px; margin-bottom: 10px;}
 .toast.red{background-color: var(--color-red);}
 .toast.green{background-color: var(--color-green);}
+
+.car-is-empty{margin: 0 auto; text-align: center; margin-top: 50px;}
+.icon-car-is-empty{width: 50px !important; height: 50px; background-color: var(--color-secondary) !important; color: var(--color-white) !important;
+    display: flex; justify-content: center; align-items: center; margin: 0 auto; border-radius: 80px !important;
+    margin-bottom: 10px; padding: 10px;}

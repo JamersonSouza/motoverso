@@ -208,22 +208,47 @@ catalog.metods = {
                 $("#items-car").append(template);
             });
         }else{
-
+            $("#items-car").html('<p class="car-is-empty"><i class="fa fa-shopping-bag icon-car-is-empty"></i> Seu carrinho encontra-se vazio.</p>');
         }
     },
 
+    //function for less quantity car
     lessQuantityCar: (id) => {
+        let quantityCurrent = parseInt($("#qtd-car-" + id).text());
+        if(quantityCurrent > 0){
+            $("#qtd-car-" + id).text(quantityCurrent - 1);
+            catalog.metods.updateCar(id, quantityCurrent - 1);
+        }else{
+            catalog.metods.removeItemCar(id);
+        }
+        console.log('Diminuindo Quantidade de itens d carrinho: ', quantityCurrent);
 
     },
 
     plusQuantityCar: (id) => {
 
+        let quantityCurrent = parseInt($("#qtd-car-" + id).text());
+        $("#qtd-car-" + id).text(quantityCurrent + 1)
+        catalog.metods.updateCar(id, quantityCurrent + 1);
+        console.log('aumentando quantidade de itens d carrinho: ', quantityCurrent+1);
+
     },
 
-    removeItemCar: (id) => {
+    removeItemCar: (id) => {//return list have not this id
+        MY_CAR = $.grep(MY_CAR, (e, i) => { //filter return elements differents for id send
+            return e.id != id;
+        });
+        catalog.metods.loadingCar();
+        catalog.metods.updateBadgeCar();
+    },
 
+    updateCar: (id, qtdNew) => { //update car with qtd current
+
+        let indexObj = MY_CAR.findIndex((obj => obj.id == id));
+        MY_CAR[indexObj].qtdAdd = qtdNew;
+
+        catalog.metods.updateBadgeCar(); //update button car
     }
-    
 }
 
 catalog.templates = {

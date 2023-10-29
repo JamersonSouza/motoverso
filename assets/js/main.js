@@ -381,6 +381,22 @@ catalog.metods = {
         }
 
         catalog.metods.loadingSteps(3);
+        catalog.metods.loadingResumeOrder();
+    },
+
+    loadingResumeOrder: () => {
+        $("#listItensCar").html('');
+
+        $.each(MY_CAR, (i, e) => {
+            let template = catalog.templates.resumeItensCar.replace(/\${imgs}/g, e.img)
+            .replace(/\${name}/g, e.name)
+            .replace(/\${price}/g, e.price.toFixed(2).replace('.', ','))
+            .replace(/\${qtdAdd}/g, e.qtdAdd)
+            $("#listItensCar").append(template);
+        })
+
+        $("#resume-address").html(`${ADDRESS_CLIENT.address}, ${ADDRESS_CLIENT.number}, ${ADDRESS_CLIENT.district}`)
+        $("#cityAddress").html(`${ADDRESS_CLIENT.city} - ${ADDRESS_CLIENT.uf} / ${ADDRESS_CLIENT.cep} ${ADDRESS_CLIENT.complement}`)
     }
 
 }
@@ -424,6 +440,20 @@ catalog.templates = {
                 <span class="btn-plus" onclick="catalog.metods.plusQuantityCar('\${id}')"><i class="fas fa-plus"></i></span>
                 <span class="btn btn-remove" onclick="catalog.metods.removeItemCar('\${id}')"><i class="fa fa-shopping-bag"></i></span>
             </div>
+    </div>
+    `,
+    resumeItensCar:`
+    <div class="row">
+        <div class="col-12 item-car resume">
+            <div class="img-product-resume">
+                <img src="\${imgs}">
+            </div>
+            <div class="data-product">
+                <p class="title-product-resume"><strong>\${name}</strong></p>
+                <p class="price-product-resume"><strong>R$ \${price}</strong></p>
+            </div>
+            <p class="qtd-product-resume">x <strong>\${qtdAdd}</strong></p>
+        </div>
     </div>
     `
 

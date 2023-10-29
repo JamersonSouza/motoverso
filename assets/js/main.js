@@ -1,5 +1,6 @@
 $(document).ready(function (){
     catalog.events.init();
+    $('#cep').mask('00000-000');
 });
 
 var catalog = {};
@@ -279,7 +280,48 @@ catalog.metods = {
                 $("#amount").text(`R$ ${(VALUE_CAR + VALUE_DELIVERY).toFixed(2).replace('.', ',')}`);
             }
         })
+    },
+
+    verifyCarIsEmpty: () => {
+        if(MY_CAR.length <= 0){
+            catalog.metods.globalMessage("Seu carrinho está vazio.", "red");
+            return;
+        }
+        catalog.metods.loadingSteps(2);
+    },
+
+    findCep:() =>{
+        let cep = $("#cep").val().trim().replace(/\D/g, '');
+        if(cep != ""){
+            let isValidCepRegex = /^[0-9]{8}$/;
+            if(isValidCepRegex.test(cep)){
+                $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function (data) {
+                    if(!("erro" in data)){
+                        //update inputs with values finds
+                        $("#address").val(data.logradouro);
+                        $("#district").val(data.bairro);
+                        $("#number").val('');
+                        $("#city").val(data.localidade);
+                        $("#uf").val(data.uf);
+                        
+                        $("#number").focus();
+                        $("#complement").focus();
+                    }else{
+                        catalog.metods.globalMessage("CEP Informado não foi encontrado! Preencha as informações manualmente", "red");
+                        $("#address").focus();
+                    }
+                })
+
+            }else{
+                catalog.metods.globalMessage("Formato do CEP inválido!", "red");
+                $("#cep").focus();
+            }
+        }else{
+            catalog.metods.globalMessage("Por favor, Informe o CEP", "red");
+            $("#cep").focus();
+        }
     }
+
 }
 
 catalog.templates = {

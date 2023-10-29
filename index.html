@@ -310,8 +310,8 @@
                         <div class="col-4">
                             <div class="form-group container-cep">
                                 <label for="cep">CEP:</label>
-                                <input type="text" class="form-control" id="cep">
-                                <a class="btn btn-sm btn-celeste"><i class="fa fa-search"></i></a>
+                                <input type="text" maxlength="9" class="form-control" id="cep">
+                                <a class="btn btn-sm btn-celeste" href="#" onclick="catalog.metods.findCep()"><i class="fa fa-search"></i></a>
                             </div>
                         </div>
 
@@ -323,7 +323,7 @@
                                 <input type="text" class="form-control" id="address">
                             </div>
                         </div>
-
+ 
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="district">Bairro:</label>
@@ -347,8 +347,8 @@
 
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="district">Complemento:</label>
-                                <input type="text" class="form-control" id="district">
+                                <label for="complement">Complemento:</label>
+                                <input type="text" class="form-control" id="complement">
                             </div>
                         </div>
 
@@ -446,7 +446,7 @@
                         <span class="valueAmount" id="amount"><strong>R$: 0,00</strong></span>
                     </p>
                 </div>
-                <a href="#" onclick="catalog.metods.loadingSteps(2)" class="btn btn-celeste float-left hidden" id="btnStageOrder">Continuar</a>
+                <a href="#" onclick="catalog.metods.verifyCarIsEmpty()" class="btn btn-celeste float-left hidden" id="btnStageOrder">Continuar</a>
                 <a href="#" onclick="catalog.metods.loadingSteps(3)"  class="btn btn-celeste float-right hidden" id="btnStageAddressOrder">Revisar Pedido</a>
                 <a href="#" class="btn btn-celeste float-right hidden" id="btnStageSendOrder">Enviar Pedido</a>
                 <a href="#" onclick="catalog.metods.backSteps()"  class="btn btn-white hidden float-right mr-3 btnBack" id="btnBack">Voltar</a>
@@ -458,6 +458,7 @@
     <script src="assets/js/modernizr-3.5.0.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/jquery.mask.js"></script>
     <script src="assets/js/fontawesome.js"></script>
     <script src="assets/js/data.js"></script>
     <script src="assets/js/main.js"></script>

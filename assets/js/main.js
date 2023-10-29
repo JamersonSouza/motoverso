@@ -11,6 +11,8 @@ var VALUE_DELIVERY = 5;
 
 var MY_CAR = [];
 
+var ADDRESS_CLIENT = null;
+
 catalog.events = {
     
     init: () => {
@@ -306,6 +308,7 @@ catalog.metods = {
                         
                         $("#number").focus();
                         $("#complement").focus();
+                     
                     }else{
                         catalog.metods.globalMessage("CEP Informado não foi encontrado! Preencha as informações manualmente", "red");
                         $("#address").focus();
@@ -320,6 +323,64 @@ catalog.metods = {
             catalog.metods.globalMessage("Por favor, Informe o CEP", "red");
             $("#cep").focus();
         }
+    },
+
+    validateFormIsEmptyAddress: () => {
+        let cep =  $("#cep").val().trim();
+        let address =  $("#address").val().trim();
+        let district =  $("#district").val().trim();
+        let complement =  $("#complement").val().trim();
+        let city =  $("#city").val().trim();
+        let uf =  $("#uf").val().trim();
+        let number =  $("#number").val().trim();
+
+        if(cep.length <= 0){
+            catalog.metods.globalMessage("Por favor, Informe o CEP", "red");
+            $("#cep").focus();
+            return;
+        }
+
+        if(address.length <= 0){
+            catalog.metods.globalMessage("Por favor, Informe o Endereço", "red");
+            $("#address").focus();
+            return;
+        }
+
+        if(district.length <= 0){
+            catalog.metods.globalMessage("Por favor, Informe o Bairro", "red");
+            $("#district").focus();
+            return;
+        }
+
+        if(city.length <= 0){
+            catalog.metods.globalMessage("Por favor, Informe a Cidade", "red");
+            $("#city").focus();
+            return;
+        }
+
+        if(number.length <= 0){
+            catalog.metods.globalMessage("Por favor, Informe o Número", "red");
+            $("#number").focus();
+            return;
+        }
+
+        if(uf == "-1"){
+            catalog.metods.globalMessage("Por favor, Informe o seu Estado", "red");
+            $("#uf").focus();
+            return;
+        }
+
+        ADDRESS_CLIENT = {
+            cep: cep,
+            address: address,
+            complement: complement,
+            number: number,
+            uf: uf,
+            city: city,
+            district: district
+        }
+
+        catalog.metods.loadingSteps(3);
     }
 
 }
